@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/serverapp
+    driverClassName: org.postgresql.Driver 
+    username: postgres
+    password: postgres
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      
+---
+  security:
+    enabled: false
+    sceret: serverapp
+    static:
+      urls: /*/,\
+            /**/favicon.ico,\
+            /**/*.png,\
+            /**/*.gif,\
+            /**/*.svg,\
+            /**/*.jpg,\
+            /**/*.html,\
+            /**/*.css,\
+            /**/*.js,\
+            /**/springfox.js*,\
+            /**/swagger-ui.html*,\
+            /**/swagger-resources/**,\
+            /**/v2/api-docs,\
+            /**/springfox-swagger-ui/**,\
+            /**/prometheus/**,\
+            /**/actuator/*,\
+            /**/csrf/
+     
